@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %} Bookstore {% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+</head>
+<body>
+
+    {# Navbar #}
+    <nav data-role="appbar" data-expand-point="md">
+        <a href="{% url 'books:index' %}" class="brand">
+            <span style="font-weight: bold; font-size: 22px;">
+                Bookstore
+            </span>
+        </a>
+    </nav>
+
+    {# Page content goes here #}
+    <div class="container-fluid" style="margin-top: 55px;">
+        {% block content %} {% endblock %}
+    </div>
+
+    {# Footer goes here #}
+
+    {# Metro UI deps #}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+</body>
+</html>

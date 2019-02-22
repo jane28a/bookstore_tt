@@ -1,0 +1,25 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+    {% for book in books %}
+    <div class="card">
+        <div class="card-header">
+            {{ book.title }}
+        </div>
+        <div class="card-content p-2">
+            <p class="fg-gray">ISBN {{ book.isbn }}</p>
+            by {{ book.authors_info }}
+        </div>
+        <div class="card-footer fg-green" style="font-size: 24px;">
+            $ {{ book.price }}
+        </div>
+    </div>
+    {% empty %}
+        <p class="text-leader">
+            Nothing to display here
+        </p>
+        <p class="text-leader2">
+            Sorry, we have no one book avaliable for this moment. Please, come back later! 
+        </p>
+    {% endfor %}
+{% endblock %}
