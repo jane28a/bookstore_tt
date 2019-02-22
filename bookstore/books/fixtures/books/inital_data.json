@@ -1,0 +1,89 @@
+[
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "isbn": "9781593275846",
+      "title": "Eloquent JavaScript, Second Edition",
+      "authors_info": "Marijn Haverbeke",
+      "price": 18.51
+    }
+  },
+
+  {
+  "model": "books.book",
+  "pk": 2,    
+    "fields": {
+      "isbn": "9781449331818",
+      "title": "Learning JavaScript Design Patterns",
+      "authors_info": "Addy Osmani",
+      "price": 10.00
+    }
+  },
+
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "isbn": "9781449365035",
+      "title": "Speaking JavaScript",
+      "authors_info": "Axel Rauschmayer",
+      "price": 17.50
+    }
+  },
+
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "isbn": "9781491950296",
+      "title": "Programming JavaScript Applications",
+      "authors_info": "Eric Elliott",
+      "price": 12.99
+    }
+  },
+
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "isbn": "9781593277574",
+      "title": "Understanding ECMAScript 6",
+      "authors_info": "Nicholas C. Zakas",
+      "price": 23.76
+    }
+  },
+
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "isbn": "9781491904244",
+      "title": "You Don't Know JS",
+      "authors_info": "Kyle Simpson",
+      "price": 14.03
+    }
+  },
+
+  {
+    "model": "books.book",
+    "pk": 7,
+    "fields": {
+      "isbn": "9781449325862",
+      "title": "Git Pocket Guide",
+      "authors_info": "Richard E. Silverman",
+      "price": 9.87
+    }
+  },
+
+  {
+    "model": "books.book",
+    "pk": 8,
+    "fields": {
+      "isbn": "9781449337711",
+      "title": "Designing Evolvable Web APIs with ASP.NET",
+      "authors_info": "Glenn Block, et al.",
+      "price": 11.43
+    }
+  }
+]
