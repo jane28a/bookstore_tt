@@ -14,6 +14,7 @@ class Book(models.Model):
 
     '''Core model for the app. Describes representation of the book 
     in app's data structure.
+    Only title field is required.
     Using Decimal for the price representation in most cases is really bad idea,
     but in the scope of this task it is appropriate because no calculation needed'''
 

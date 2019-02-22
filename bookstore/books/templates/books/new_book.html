@@ -1,0 +1,10 @@
+{% extends "books/base.html" %}
+
+{% block title%} New book {% endblock %}
+
+{% block content %}
+    <form action="new" method="post">
+        {% csrf_token %}
+        {% include "books/form_template.html" %}        
+    </form>
+{% endblock %}

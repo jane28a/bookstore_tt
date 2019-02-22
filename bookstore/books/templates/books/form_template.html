@@ -1,0 +1,17 @@
+{{ form.non_field_errors }}
+
+{% for field in form.visible_fields %}
+    <div class="form-group">
+        <label {% if field.help_text %} data-role="hint" data-hint-position="right" data-cls-hint="bg-green fg-white drop-shadow" 
+            data-hint-text="{{ field.help_text }}" {% endif %}>
+            {{ field.label_tag }}
+            {{ field.errors }}
+        </label>
+        {{ field }}
+    </div>
+{% endfor %}
+
+<div class="form-group">
+    <button class="button success">Submit data</button>
+    <input type="button" class="button" onclick="window.location.assign({% url 'books:index' %})" value="Cancel">
+</div>
