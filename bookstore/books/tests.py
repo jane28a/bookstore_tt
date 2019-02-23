@@ -1,7 +1,6 @@
 from django.test import TestCase, Client
 
 from books.models import Book
-from books.forms import BookForm
 
 
 class BookListTestSuite(TestCase):
@@ -56,3 +55,26 @@ class AddBookTestSuite(TestCase):
         resp = self.client.post('/books/new', {'title': 'new_book',
                                                 'isbn': 'no_value'})
         self.assertIn(b'Only digits and hyphens are allowed', resp.content)
+
+
+class UpdateBookTestSuite(TestCase):
+
+    '''Test updating information about existing book'''
+
+    def setUp(self):
+        self.client = Client()
+        Book.objects.create(title='test_book')
+
+    def test_response_with_update_form(self):
+        resp = self.client.get('/books/1')
+        self.assertIn(b'form', resp.content)
+
+    def test_404_for_notexistent_index(self):
+        resp = self.client.get('/books/100')
+        self.assertEqual(resp.status_code, 404)
+
+    def test_update_data_on_post(self):
+        resp = self.client.post('/books/1', {'title': 'new_title'})
+        self.assertEqual(resp.status_code, 302)
+        book = Book.objects.get(pk=1)
+        self.assertEqual(book.title, 'new_title')

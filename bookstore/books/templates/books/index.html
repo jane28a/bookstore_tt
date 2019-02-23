@@ -1,9 +1,7 @@
 {% extends "books/base.html" %}
 
 {% block controls %}
-    <li>
-        <a href="{% url 'books:new-book' %}">Add book</a>
-    </li>
+{% include "books/add_control.html" %}
 {% endblock %}
 
 {% block content %}
@@ -11,6 +9,9 @@
     <div class="card">
         <div class="card-header">
             {{ book.title }}
+            <a href="{% url 'books:update-book' book.id %}">
+                <span class="mif-pencil"></span>
+            </a>
         </div>
         <div class="card-content p-2">
             <p class="fg-gray">ISBN {{ book.isbn|default:"not provided" }}</p>

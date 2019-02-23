@@ -1,13 +1,19 @@
 {% extends "books/base.html" %}
 
-{% block title%} New book {% endblock %}
+{% block title %}
+    Update {{ form.title.value }} 
+{% endblock %}
+
+{% block controls %}
+{% include "books/add_control.html" %}
+{% endblock %}
 
 {% block content %}
     <form method="post">
         {% csrf_token %}
         {% include "books/form_template.html" %}
         <div class="form-group">
-            <button class="button success">Create</button>
+            <button class="button success">Update</button>
             <input type="button" class="button" onclick="window.location.assign({% url 'books:index' %})" value="Cancel">
         </div>       
     </form>

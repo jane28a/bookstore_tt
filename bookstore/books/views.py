@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseNotAllowed, HttpResponseRedirect
 from django.urls import reverse
 
@@ -32,3 +32,17 @@ def add_new_book(request):
     else:
         form = BookForm()
     return render(request, 'books/new_book.html', {'form': form})
+
+
+def update_book(request, book_id):
+
+    '''Update information about the existing book'''
+    book = get_object_or_404(Book, pk=book_id)
+    if request.method == 'POST':
+        form = BookForm(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('books:index'))
+    else:
+        form = BookForm(instance=book)
+    return render(request, 'books/update_book.html', {'form': form})    
