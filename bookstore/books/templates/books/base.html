@@ -18,6 +18,8 @@
         {% if user.is_authenticated %}
             <span> welcomes {{ user.username }}</span>
             <a href="{% url 'logout' %}"><span class="mif-cancel"></span></a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</span></a>
         {% endif %}
         <ul class="app-bar-menu">
             {% block controls %} {% endblock %}            

@@ -25,6 +25,8 @@ class Command(BaseCommand):
         
         #Create user and add him to the group    
         manager_user = User.objects.create_user(options['name'], password=options['pass'])
+        manager_user.is_staff = True
+        manager_user.save()
         manager_user.groups.add(managers_group)
 
 

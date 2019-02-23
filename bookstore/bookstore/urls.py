@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
 
+from books.admin import admin_site
+
+
 urlpatterns = [
     path('', lambda request: redirect('login')),
     path('books/', include('books.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('management/', admin_site.urls),
 ]
