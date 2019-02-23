@@ -21,4 +21,5 @@ urlpatterns = [
     path('', lambda request: redirect('books:index')),
     path('books/', include('books.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

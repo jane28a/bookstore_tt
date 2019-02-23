@@ -5,6 +5,7 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
+        {{ form.non_field_errors }}
         {% include "books/form_template.html" %}
         <div class="form-group">
             <button class="button success">Create</button>

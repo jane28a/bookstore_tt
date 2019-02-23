@@ -1,0 +1,26 @@
+{% extends "books/base.html" %}
+
+{% block content %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <h2>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</h2>
+    {% else %}
+    <h2>Please login to see this page.</h2>
+    {% endif %}
+{% endif %}
+
+{% if form.errors %}
+    <p style="color:red;">Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+{% include "books/form_template.html" %}
+
+<input type="submit" value="Login">
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+
+{% endblock %}
