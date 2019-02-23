@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseNotAllowed, HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import permission_required
 
 from .models import Book
 from .forms import BookForm
@@ -20,6 +21,7 @@ def index(request):
         return HttpResponseNotAllowed(['GET'])
 
 
+@permission_required('books.add_book')
 def add_new_book(request):
 
     '''Cretion of the new book instance'''
@@ -34,6 +36,7 @@ def add_new_book(request):
     return render(request, 'books/new_book.html', {'form': form})
 
 
+@permission_required('books.change_book')
 def update_book(request, book_id):
 
     '''Update information about the existing book'''

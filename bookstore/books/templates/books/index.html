@@ -1,7 +1,9 @@
 {% extends "books/base.html" %}
 
 {% block controls %}
-{% include "books/add_control.html" %}
+    {% if perms.books.can_manage %}
+        {% include "books/add_control.html" %}
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -9,9 +11,11 @@
     <div class="card">
         <div class="card-header">
             {{ book.title }}
-            <a href="{% url 'books:update-book' book.id %}">
-                <span class="mif-pencil"></span>
-            </a>
+            {% if perms.books.can_manage %}
+                <a href="{% url 'books:update-book' book.id %}">
+                    <span class="mif-pencil"></span>
+                </a>
+            {% endif %}
         </div>
         <div class="card-content p-2">
             <p class="fg-gray">ISBN {{ book.isbn|default:"not provided" }}</p>
