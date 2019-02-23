@@ -20,6 +20,7 @@
         <div class="card-content p-2">
             <p class="fg-gray">ISBN {{ book.isbn|default:"not provided" }}</p>
             by {{ book.authors_info|default:"anonymous" }}
+            <p class="fg-gray">Published at {{ book.publish_date|default:"recently" }}</p>
         </div>
         <div class="card-footer fg-green" style="font-size: 24px;">
             $ {{ book.price|default:"Not avaliable" }}

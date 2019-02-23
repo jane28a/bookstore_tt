@@ -20,6 +20,7 @@ class BookForm(forms.ModelForm):
             'price': forms.widgets.TextInput(attrs={'data-role': 'spinner',
                                                     'data-step': '.01',
                                                     'data-fixed': '2'}),
+            'publish_date': forms.widgets.TextInput(attrs={'data-role': "calendarpicker"}),
         }
 
     def clean_isbn(self):

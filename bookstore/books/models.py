@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from django.core.exceptions import ValidationError
 
@@ -24,6 +25,7 @@ class Book(models.Model):
     isbn = models.CharField(max_length=20, null=True, blank=True, verbose_name='ISBN',
                             help_text='International Standard Book Number', validators=[validate_isbn])
     price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    publish_date = models.DateField(null=False, blank=True, default=date.today)
 
     def __str__(self):
         return self.title
