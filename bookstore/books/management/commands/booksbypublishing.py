@@ -27,7 +27,7 @@ class Command(BaseCommand):
                                                             book.publish_date))
         #If no ordering option provided or both of them were given
         else:
-            print('Please, choose direction of ordering')
+            print('Please, choose the direction of ordering')
 
 
     def add_arguments(self, parser):
