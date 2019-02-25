@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Requests
+{% endblock %}
+
+{% block content %}
+    <h1> List of last requests: </h1>
+    <div data-role="accordion" data-material="true">
+    {% for request in requests %}
+        <div class="frame">
+            <div class="heading"> {{ request.time }}: {{ request.method }} to {{ request.path }}. Status: {{ request.response_status }}
+            </div>
+            <div class="content">
+                <div class="p-2">
+                    <p>Content type: {{ request.content_type }}</p>
+                    <p>Headers: {{ request.headers }}</p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <h3>Nothing to show here</h3>
+    {% endfor %}
+    </div>
+{% endblock %}

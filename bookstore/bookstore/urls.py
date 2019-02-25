@@ -19,6 +19,8 @@ from django.shortcuts import redirect
 
 from books.admin import admin_site
 
+from requests.views import last_requests
+
 
 def redirect_from_root(request):
 
@@ -38,4 +40,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('management/', admin_site.urls),
+    path('requests/', last_requests, name='requests-list')
 ]
