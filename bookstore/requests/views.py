@@ -6,7 +6,8 @@ from .models import Request
 
 def last_requests(request):
 
-    '''Get last 10 request instanses from db'''
+    '''Get last 10 request instanses from db.
+    Current request not included in this list'''
 
     if request.method == 'GET':
         requests_list = Request.objects.order_by('-time')[:10]
