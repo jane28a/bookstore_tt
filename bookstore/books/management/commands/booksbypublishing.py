@@ -5,7 +5,7 @@ from books.models import Book
 
 class Command(BaseCommand):
 
-    help = 'Books ordering by publish date ("-a" for ascending \
+    help = 'Books ordering by publish date ("-a" for ascending\
         or "-d" for descending direction)'
 
     def handle(self, *args, **options):
@@ -15,7 +15,7 @@ class Command(BaseCommand):
         is defined by options'''
 
         #Define if only one option was given
-        if options['ascending'] or options['descending']:
+        if options['ascending'] ^ options['descending']:
             if options['ascending']:
                 direction = 'publish_date'
             else:
@@ -25,9 +25,9 @@ class Command(BaseCommand):
                 print('"{}" by {} was published on {}'.format(book.title,
                                                             book.authors_info,
                                                             book.publish_date))
-        #If no ordering option provided or both of them were given print help string
+        #If no ordering option provided or both of them were given
         else:
-            print(self.help)
+            print('Please, choose direction of ordering')
 
 
     def add_arguments(self, parser):
