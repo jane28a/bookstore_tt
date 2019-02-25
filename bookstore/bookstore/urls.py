@@ -20,8 +20,20 @@ from django.shortcuts import redirect
 from books.admin import admin_site
 
 
+def redirect_from_root(request):
+
+    '''Redirecting logged-in users to booklist from the root.
+    Anonymous users goes to login page'''
+
+    if request.user.is_authenticated:
+        return redirect('books:index')
+    else:
+        return redirect('login')
+
+
+
 urlpatterns = [
-    path('', lambda request: redirect('login')),
+    path('', redirect_from_root),
     path('books/', include('books.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
