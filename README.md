@@ -1,9 +1,9 @@
 # Bookstore
 *Test task*
 
-The project is in deveveloment state, no preparations to deploy were done. 
+The project is in development state, no preparations for deploy were done. 
 The project containes **two applications**:
-1. Requests - for managing http requests, saving them to the database and displaying last 10 of them on the separate view.
+1. Requests - for managing http requests, saving them to the database and displaying last 10 of them in the separate view.
 2. Books. Features of this app are:
   * json-formatted fixture with inital data (8 itmes);
   * custom template tag with copyright (start year is defined in settings module);
