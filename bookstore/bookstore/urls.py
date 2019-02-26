@@ -36,9 +36,9 @@ def redirect_from_root(request):
 
 urlpatterns = [
     path('', redirect_from_root),
-    path('books/', include('books.urls')),
-    path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('management/', admin_site.urls),
-    path('requests/', last_requests, name='requests-list')
+    path('books/', include('books.urls')), #books list, create/update books
+    path('admin/', admin.site.urls), #default django admin 
+    path('accounts/', include('django.contrib.auth.urls')), #authentification 
+    path('management/', admin_site.urls), #custom site admin for managing books
+    path('requests/', last_requests, name='requests-list') #list of requests
 ]
